@@ -1,0 +1,79 @@
+.jumbotron {
+    background-image: url("./imgs/carpet.jpg");
+    background-size: cover;
+    background-position: center center;
+    min-height: 85vh;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.padd {
+    padding-top: 30px;
+}
+
+
+/* ================================LOGIN PAGE=================================== */
+
+
+/* Bordered form */
+
+form {
+    margin-top: 50px;
+}
+
+
+/* Add padding to containers */
+
+.container {
+    padding: 16px;
+}
+
+
+/* ================================LOGIN PAGE=================================== */
+
+.c {
+    width: 20%;
+    margin: 25px auto;
+    text-align: right;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.right {
+    margin: auto;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.left {
+    margin: auto;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+/* SCHEDULE */
+
+.form-sec {
+    width: 400px;
+    padding: 15px;
+    background: #f8f9fa;
+    margin: 0 auto;
+}
