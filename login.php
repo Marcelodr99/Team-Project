@@ -2,9 +2,9 @@
 <body>
 <?php
 $servername = "127.0.0.1";
-$username = "root";
+$username = "mysql";
 $password = "mysql";
-$dbname = "project";
+$dbname = "project2";
 $myusername = $_POST["login"];
 $mypassword= $_POST["password"];
 $conn = new mysqli($servername, $username, $password, $dbname);

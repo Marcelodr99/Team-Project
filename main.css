@@ -1,8 +1,8 @@
 .jumbotron {
-    background-image: url("./imgs/carpet.jpg");
+    background-image: url("./imgs/carpet-min.jpg");
     background-size: cover;
     background-position: center center;
-    min-height: 85vh;
+    min-height: 100vh;
 }
 
 li {
@@ -76,4 +76,10 @@ form {
     padding: 15px;
     background: #f8f9fa;
     margin: 0 auto;
+}
+#h,
+#b {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
 }

@@ -2,9 +2,9 @@
 <body>
 <?php
 $servername = "127.0.0.1";
-$username = "root";
+$username = "mysql";
 $password = "mysql";
-$dbname = "project";
+$dbname = "project2";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -23,7 +23,7 @@ $date= date('Y-m-d', strtotime($input_date));
 $sql = "INSERT INTO schedule (name, email, phone, date, info) 
 VALUES ('$name', '$email', '$phone', '$date', '$info')";
 if ($conn->query($sql) === TRUE) {
- echo "Sign up successfully!";
+ echo "Sent!";
  header("location: admin.php");
 }
 else {

@@ -30,9 +30,18 @@
                 <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
             </ul>
             <ul class="navbar-nav form-inline my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link" href="./login.html">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="./register.html">Register</a></li>
-                <li class="nav-item"><a class="nav-link" href="./admin.html">Admin</a></li>
+				
+				<?php
+				session_start();
+				$ret = $_SESSION['row'];
+				?>
+				<td class="nav-item">
+				Welcome,
+				<?php echo
+				$ret['username']; ?></td>
+				
+                <li class="nav-item"><a class="nav-link" href="./admin.php">Admin</a></li>
+				<li class="nav-item"><a class="nav-link" href="./index.html">Log Out</a></li>
             </ul>
         </div>
     </nav>
@@ -57,17 +66,19 @@ tr:nth-child(even) {background-color: }
 </style>
 </head>
 <body>
-<table>
+<table class="table table-striped">
+<thead>
 <tr>
-<th>Name</th>
-<th>Phone</th>
-<th>Email</th>
-<th>Info</th>
-<th>Date</th>
+<th scope="col">Name</th>
+<th scope="col">Phone</th>
+<th scope="col">Email</th>
+<th scope="col">Info</th>
+<th scope="col">Date</th>
 </tr>
-
+</thead>
+<tbody>
 <?php
-$conn = mysqli_connect("127.0.0.1", "root", "mysql", "project");
+$conn = mysqli_connect("127.0.0.1", "mysql", "mysql", "project2");
 // Check connection
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
@@ -77,14 +88,13 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row
 while($row = $result->fetch_assoc()) {
-echo "<tr><td>" . $row["name"]. "</td><td>" . $row["phone"] . "</td><td>"
+echo "<tr scope='row'><td>" . $row["name"]. "</td><td>" . $row["phone"] . "</td><td>"
 . $row["email"]. "</td><td>".$row["info"]. "</td><td>".$row["date"]. "</td></tr>";
 }
 echo "</table>";
 } else { echo "0 results"; }
 $conn->close();
 ?>
-</table
-	
+	</tbody>
 </body>
 </html>
