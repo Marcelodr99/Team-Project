@@ -2,28 +2,30 @@
 <body>
 <?php
 $servername = "127.0.0.1";
-$username = "mysql";
+$username = "root";
 $password = "mysql";
-$dbname = "project2";
+$dbname = "project";
 $myusername = $_POST["login"];
 $mypassword= $_POST["password"];
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
+
 if (!$conn) {
  die("Connection failed: " . mysqli_connect_error());
 }
+
 $sql = "SELECT * FROM signup WHERE username = '$myusername' and
 password = '$mypassword'";
 $result = $conn->query($sql);
+
 if ($result->num_rows === 1) {
  session_start();
- $row = $result->fetch_assoc();
-unset($_SESSION['row']);
+$_SESSION = mysqli_fetch_array ($result, MYSQLI_ASSOC);
+$_SESSION['user_level'] = (int) $_SESSION['user_level'];
 
-if (!isset($_SESSION['row'])) {
- $_SESSION['row'] = $row;
- header("location: welcome.php");
-}
+$url = ($_SESSION['user_level'] === 1) ? 'welcomeAdmin.php' : 'welcome.php';
+ header('Location: ' . $url);
+
 } else {
  echo "Error: " . $sql . "<br>" . $conn->error;
 }
