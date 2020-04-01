@@ -30,14 +30,11 @@
             </ul>
             <ul class="navbar-nav form-inline my-2 my-lg-0">
 				
-				<?php
-				session_start();
-				$ret = $_SESSION['row'];
-				?>
 				<td class="nav-item">
 				Welcome,
-				<?php echo
-				$ret['username']; ?></td>
+				<?php 
+				session_start();
+				echo $_SESSION['username'] ?></td>
 				<li class="nav-item"><a class="nav-link" href="./admin.php">Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="./index.html">Log Out</a></li>
 				
