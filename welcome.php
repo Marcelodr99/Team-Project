@@ -31,10 +31,6 @@
             <ul class="navbar-nav form-inline my-2 my-lg-0">
 				
 				
-				
-				
-				
-				
 				<td class="nav-item">
 				Welcome,
 				<?php 

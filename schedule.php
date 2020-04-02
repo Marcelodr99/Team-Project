@@ -24,7 +24,7 @@ $sql = "INSERT INTO schedule (name, email, phone, date, info)
 VALUES ('$name', '$email', '$phone', '$date', '$info')";
 if ($conn->query($sql) === TRUE) {
  echo "Sent!";
- header("location: admin.php");
+ header("location: index.html");
 }
 else {
  echo "Error: " . $sql . "<br>" . $conn->error;

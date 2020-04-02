@@ -69,27 +69,39 @@ tr:nth-child(even) {background-color: }
 <table class="table table-striped">
 <thead>
 <tr>
+
+
 <th scope="col">Name</th>
 <th scope="col">Phone</th>
 <th scope="col">Email</th>
 <th scope="col">Info</th>
 <th scope="col">Date</th>
+<th scope="col">Delete</th>
 </tr>
 </thead>
 <tbody>
+
 <?php
-$conn = mysqli_connect("127.0.0.1", "root", "mysql", "project");
+$conn = mysqli_connect('127.0.0.1', 'root', 'mysql','project');
+
 // Check connection
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT name, email, phone, info, date FROM schedule";
-$result = $conn->query($sql);
+$sql = "SELECT * FROM schedule";
+$result = mysqli_query($conn,$sql);
 if ($result->num_rows > 0) {
 // output data of each row
-while($row = $result->fetch_assoc()) {
-echo "<tr scope='row'><td>" . $row["name"]. "</td><td>" . $row["phone"] . "</td><td>"
-. $row["email"]. "</td><td>".$row["info"]. "</td><td>".$row["date"]. "</td></tr>";
+while($row = mysqli_fetch_array($result)) { 
+	echo "<tr scope='row'>";
+	
+	echo "<td>".$row['name']."</td>";
+	echo "<td>".$row['phone']."</td>";
+	echo "<td>".$row['email']."</td>";
+	echo "<td>".$row['info']."</td>";
+	echo "<td>".$row['date']."</td>";
+	echo "<td><a href=delete.php?id=".$row['id'].">Delete</a></td>";
+	"</tr>";
 }
 echo "</table>";
 } else { echo "0 results"; }
