@@ -78,17 +78,22 @@ $result = $conn->query($sql);
 
 if ($result->num_rows === 1) {
  session_start();
-
+$_SESSION['Error'] = "The e-mail address and password entered do not match our records. Perhaps you need to register, just click the Register button on the header menu";
 $_SESSION = mysqli_fetch_array ($result, MYSQLI_ASSOC);
 $_SESSION['user_level'] = (int) $_SESSION['user_level'];
 
 $url = ($_SESSION['user_level'] === 1) ? 'welcomeAdmin.php' : 'welcome.php';
   header('Location: ' . $url);
-
-} else { echo '<p class="error">The e-mail address and password entered do not match our records 
-<br>Perhaps you need to register, just click the Register button on the header menu</p>';
-
+  
+exit();
+mysqli_free_result($result);
+mysqli_close($dbcon);
+} else { echo $_SESSION['Error'];
+		unset($_SESSION['Error']);
+		//header('refresh:1; url = login.php');
+		//exit();
 }
+
 $conn->close();
  
 ?>
