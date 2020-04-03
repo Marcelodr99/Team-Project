@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Carpet Cleaning</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -35,43 +36,208 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <form name="qryform" id="qryform" method="post" action="schedule.php" onsubmit="return(validate());" novalidate="novalidate">
+        <div class="container">
+            <div class="form-row">
 
-        <div class="form-sec">
-            <h4>Contact form</h4>
+                <div class="col form-sec">
+                    <h4>Contact form</h4>
 
-            <form name="qryform" id="qryform" method="post" action="schedule.php" onsubmit="return(validate());" novalidate="novalidate">
-                <div class="form-group">
-                    <label>Name:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone No.:</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Enter Phone no." name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Date:</label>
+                        <input type="date" class="form-control" id="date" placeholder="Date" name="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Info:</label>
+                        <textarea name="info" class="form-control" id="info" placeholder="Enter additional information."></textarea>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
-                </div>
 
-                <div class="form-group">
-                    <label>Phone No.:</label>
-                    <input type="text" class="form-control" id="phone" placeholder="Enter Phone no." name="phone">
-                </div>
-                <div class="form-group">
-                    <label>Date:</label>
-                    <input type="date" class="form-control" id="date" placeholder="Date" name="date">
-                </div>
+                <div class="col form-sec">
+                    <h4>Services</h4>
 
-                <div class="form-group">
-                    <label>Info:</label>
-                    <textarea name="info" class="form-control" id="info" placeholder="Enter additional information."></textarea>
+                    <div class="card">
+
+                        <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+                            <!-- Accordion card -->
+                            <div class="card">
+
+                                <!-- Card header -->
+                                <div class="card-header" role="tab" id="headingOne1">
+                                    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+                                        <h5 class="mb-0">
+                                            Carpet Cleaning <i class="fa fa-chevron-down rotate-icon" aria-hidden="true"></i>
+                                        </h5>
+                                    </a>
+                                </div>
+
+                                <!-- Card body -->
+                                <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"></th>
+                                                    <th scope="col">Clean</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Rooms</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subCR()">-</button> <label id="cleanRoom">0</label> <button type="button" class="btn btn-secondary" onclick="addCR()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Bath/Laundry</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subCB()">-</button> <label id="cleanBath">0</label> <button type="button" class="btn btn-secondary" onclick="addCB()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Entry/Hall</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subCE()">-</button> <label id="cleanEntry">0</label> <button type="button" class="btn btn-secondary" onclick="addCE()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Staircase</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subCS()">-</button> <label id="cleanStair">0</label> <button type="button" class="btn btn-secondary" onclick="addCS()">+</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card">
+
+                                <!-- Card header -->
+                                <div class="card-header" role="tab" id="headingOne2">
+                                    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+                                        <h5 class="mb-0">
+                                            Upholstery Cleaning <i class="fa fa-chevron-down rotate-icon" aria-hidden="true"></i>
+                                        </h5>
+                                    </a>
+                                </div>
+
+                                <!-- Card body -->
+                                <div id="collapseOne2" class="collapse" role="tabpanel" aria-labelledby="headingOne2" data-parent="#accordionEx">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"></th>
+                                                    <th scope="col">Clean</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Sofa</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subS()">-</button> <label id="upSofa">0</label> <button type="button" class="btn btn-secondary" onclick="addS()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Sectional</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subSe()">-</button> <label id="upSectional">0</label> <button type="button" class="btn btn-secondary" onclick="addSe()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Chair</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subC()">-</button> <label id="upChair">0</label> <button type="button" class="btn btn-secondary" onclick="addC()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Ottoman</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subO()">-</button> <label id="upOttoman">0</label> <button type="button" class="btn btn-secondary" onclick="addO()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Dining Room Chair</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subDR()">-</button> <label id="upDining">0</label> <button type="button" class="btn btn-secondary" onclick="addDR()">+</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card">
+
+                                <!-- Card header -->
+                                <div class="card-header" role="tab" id="headingOne3">
+                                    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne3" aria-expanded="true" aria-controls="collapseOne3">
+                                        <h5 class="mb-0">
+                                            Tile & Grout Floor Cleaning <i class="fa fa-chevron-down rotate-icon" aria-hidden="true"></i>
+                                        </h5>
+                                    </a>
+                                </div>
+
+                                <!-- Card body -->
+                                <div id="collapseOne3" class="collapse" role="tabpanel" aria-labelledby="headingOne3" data-parent="#accordionEx">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"></th>
+                                                    <th scope="col">Clean</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Rooms</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subTR()">-</button> <label id="tileRoom">0</label> <button type="button" class="btn btn-secondary" onclick="addTR()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Bath/Laundry</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subTB()">-</button> <label id="tileBath">0</label> <button type="button" class="btn btn-secondary" onclick="addTB()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Entry/Hall</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subTE()">-</button> <label id="tileEntry">0</label> <button type="button" class="btn btn-secondary" onclick="addTE()">+</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Staircase</th>
+                                                    <td><button type="button" class="btn btn-secondary" onclick="subTS()">-</button> <label id="tileStair">0</label> <button type="button" class="btn btn-secondary" onclick="addTS()">+</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="col form-sec ml-3">
+                    <h2>Your Estimated Quote</h2>
 
 
+                    <div class="form-group mt-5">
+                        <h3>Estimated Total:
+                            <label>$ </label>
+                            <label id="total">0</label>
+                        </h3>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+            </div>
+    </form>
 
 
-    </div>
 
+
+    <script src="./schedule.js"></script>
 </body>
 
 </html>
