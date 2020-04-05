@@ -44,15 +44,30 @@
                 <h1 class="padd"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</h1>
             </div>
             <form action="signup.php" method="post">
-				<input type="text" id="firstname" name="firstname" placeholder="First name" required>
-				<input type="text" id="lastname" name="lastname" placeholder="Last name" required>
+				<input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+				<input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
                 <input type="email" id="email" name="email" placeholder="Email" required>
                 <input type="text" id="user" name="user" placeholder="Username" required>
-                <input type="password" id="password" name="password" placeholder="Password" minlength="8">
-				<input type="password" id="passwordConf" name="passwordConf" placeholder="Confirm Password" minlength="8">
+                <input type="password" id="password" name="password" placeholder="Password" minlength="8" required>
+				<input type="password" id="passwordConf" name="passwordConf" placeholder="Confirm Password" minlength="8" required>
                 <input type="submit" value="Sign Up">
 				
             </form>
+		    <script>
+                var password = document.getElementById("password")
+                    , confirm_password = document.getElementById("passwordConf");
+                  
+                  function validatePassword(){
+                    if(password.value != confirm_password.value) {
+                      confirm_password.setCustomValidity("Passwords Don't Match");
+                    } else {
+                      confirm_password.setCustomValidity('');
+                    }
+                  }
+                  
+                  password.onchange = validatePassword;
+                  confirm_password.onkeyup = validatePassword;
+            </script>
             <div id="formFooter">
                 Already have an account? <a class="underlineHover" href="login.html">Login</a>
             </div>
