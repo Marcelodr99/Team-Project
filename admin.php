@@ -1,4 +1,10 @@
+<?php require_once 'controllers/authController.php';
+if(!isset($_SESSION['id'])){
+	header('location: login.php');
+	exit();
+}
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +23,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="./welcomeAdmin.php"><img src="https://img.icons8.com/metro/26/000000/vacuum-cleaner.png"> | Rossi Carpet Cleaning</a>
+        <a class="navbar-brand" href="./indexAdmin.php"><img src="https://img.icons8.com/metro/26/000000/vacuum-cleaner.png"> | Rossi Carpet Cleaning</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,7 +31,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="./welcomeAdmin.php">Home <span class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./indexAdmin.php">Home <span class="sr-only">(current)</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
             </ul>
@@ -38,7 +44,7 @@
 				echo $_SESSION['username'] ?></td>
 				
                 <li class="nav-item"><a class="nav-link" href="./admin.php">Admin</a></li>
-				<li class="nav-item"><a class="nav-link" href="./index.html">Log Out</a></li>
+				 <li class="nav-item"><a class="nav-link" href="indexAdmin.php?logout=1" class = "logout">logout</a></li>
             </ul>
         </div>
     </nav>

@@ -1,3 +1,4 @@
+<?php require_once 'controllers/authController.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +18,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-5">
         <a class="navbar-brand" href="./index.html"><img src="https://img.icons8.com/metro/26/000000/vacuum-cleaner.png"> | Rossi Carpet Cleaning</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,8 +32,8 @@
                 <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
             </ul>
             <ul class="navbar-nav form-inline my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link" href="./login.html">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="./register.html">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="./login.php">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="./register.php">Register</a></li>
 
             </ul>
         </div>
@@ -41,22 +42,31 @@
     <div class="wrapper">
         <div id="formContent">
             <div>
-                <h1 class="padd"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</h1>
+                <h1 class="padd"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</h1>
             </div>
-
-            <form action = "login.php" method ="post">
-			
-                <input type="text" id="login" name="login" placeholder="Login" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <input type="submit" value="Log In">
+            <form action="register.php" method="post">
+			<?php if(count($errors) > 0): ?>
+					<div class="alert alert-danger">
+						<?php foreach($errors as $error): ?>	
+						<li><?php echo $error;?></li>	
+						<?php endforeach; ?>
+				    </div>
+				<?php endif; ?>
+				<input type="text" id="username" name="username" value="<?php echo $username; ?>" placeholder="Username">
+                <input type="email" id="email" name="email" value="<?php echo $email; ?>" placeholder="Email">
+                <input type="password" id="password" name="password" placeholder="Password">
+				<input type="password" id="passwordConf" name="passwordConf" placeholder="Confirm Password">
+                <input type="submit" name = "signup-btn" value="Sign Up">
+				
             </form>
+
             <div id="formFooter">
-                <p>Don't yet have an account? <a class="underlineHover" href="register.html">Sign Up</a></p>
-                <p><a class="underlineHover" href="#">Forgot Password?</a></p>
+                Already have an account? <a class="underlineHover" href="login.php">Login</a>
             </div>
 
         </div>
     </div>
+	
 </body>
 
 </html>

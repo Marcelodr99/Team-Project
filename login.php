@@ -1,6 +1,6 @@
+<?php require_once 'controllers/authController.php';?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
             </ul>
             <ul class="navbar-nav form-inline my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link" href="./login.php">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="./register.html">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="./register.php">Register</a></li>
 
             </ul>
         </div>
@@ -43,59 +43,33 @@
             <div>
                 <h1 class="padd"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</h1>
             </div>
-
+			<div class = "alert <?php echo $_SESSION['alert-class']; ?>">
+			<?php
+				echo $_SESSION['message'];
+				unset($_SESSION['message']);
+				unset($_SESSION['alert-class']);
+				?>
+				</div>
             <form action = "login.php" method ="post">
-			
-                <input type="text" id="login" name="login" placeholder="Login" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <input type="submit" value="Log In">
+				<?php if(count($errors) > 0): ?>
+					<div class="alert alert-danger">
+						<?php foreach($errors as $error): ?>	
+						<li><?php echo $error;?></li>	
+						<?php endforeach; ?>
+				    </div>
+				<?php endif; ?>
+                <input type="text" id="username" name="username" value="<?php echo $username; ?>"placeholder="Login" >
+                <input type="password" id="password" name="password" placeholder="Password" >
+                <input type="submit" name = "login-btn" value="Log In">
             </form>
             <div id="formFooter">
-                <p>Don't yet have an account? <a class="underlineHover" href="register.html">Sign Up</a></p>
+                <p>Don't yet have an account? <a class="underlineHover" href="register.php">Sign Up</a></p>
                 <p><a class="underlineHover" href="#">Forgot Password?</a></p>
             </div>
 
         </div>
     </div>
 
-<?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "mysql";
-$dbname = "project";
-$myusername = $_POST["login"];
-$mypassword= $_POST["password"];
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
 
-if (!$conn) {
- die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "SELECT * FROM signup WHERE username = '$myusername' and
-password = '$mypassword'";
-$result = $conn->query($sql);
-
-if ($result->num_rows === 1) {
- session_start();
-$_SESSION['Error'] = "The e-mail address and password entered do not match our records. Perhaps you need to register, just click the Register button on the header menu";
-$_SESSION = mysqli_fetch_array ($result, MYSQLI_ASSOC);
-$_SESSION['user_level'] = (int) $_SESSION['user_level'];
-
-$url = ($_SESSION['user_level'] === 1) ? 'welcomeAdmin.php' : 'welcome.php';
-  header('Location: ' . $url);
-  
-exit();
-mysqli_free_result($result);
-mysqli_close($dbcon);
-} else { echo $_SESSION['Error'];
-		unset($_SESSION['Error']);
-		//header('refresh:1; url = login.php');
-		//exit();
-}
-
-$conn->close();
- 
-?>
 </body>
 </html>
