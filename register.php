@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Carpet Cleaning</title>
     <link rel="stylesheet" href="main.css">
+    
     <link rel="stylesheet" href="login.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -45,7 +46,7 @@
                 <h1 class="padd"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</h1>
             </div>
             <form action="register.php" method="post">
-			<?php if(count($errors) > 0): ?>
+			    <?php if(count($errors) > 0): ?>
 					<div class="alert alert-danger">
 						<?php foreach($errors as $error): ?>	
 						<li><?php echo $error;?></li>	
