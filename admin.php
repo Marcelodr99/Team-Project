@@ -58,7 +58,7 @@ border-collapse: collapse;
 width: 100%;
 color: ;
 font-family: "Poppins", sans-serif;
-font-size: 15px;
+font-size: 16px;
 text-align: center;
 }
 th {
@@ -66,9 +66,64 @@ background-color: #808080;
 color: white;
 }
 tr:nth-child(even) {background-color: }
+
+.delete {
+webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background-color: #808080;
+    font: #939595;
+    color: white
+}
+
+ .customCheckBox[type="checkbox"]:after{
+        position: relative;
+        display: block;
+        left: 2px;
+        top: -11px;
+        width: 7px;
+        height: 7px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #B3B3B3 #dcddde #dcddde #B3B3B3;
+        content: "";
+        background-repeat: no-repeat;
+        background-position:center;
+    }
+
+    .customCheckBox[type="checkbox"]:before{
+        border: 1px solid #808080;
+        content: "";
+        background: #FFF;
+        position: relative;
+        display: block;
+        width: 11px;
+        height: 11px;
+
+    }
+    .customCheckBox[type="checkbox"]:checked:after{
+        background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAQAAABuW59YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAB2SURBVHjaAGkAlv8A3QDyAP0A/QD+Dam3W+kCAAD8APYAAgTVZaZCGwwA5wr0AvcA+Dh+7UX/x24AqK3Wg/8nt6w4/5q71wAAVP9g/7rTXf9n/+9N+AAAtpJa/zf/S//DhP8H/wAA4gzWj2P4lsf0JP0A/wADAHB0Ngka6UmKAAAAAElFTkSuQmCC');
+    }
+    /* Large checkboxes */
+    .customCheckBox.large{
+        height:22px;
+        width: 22px;
+    }
+
+    .customCheckBox.large[type="checkbox"]:before{
+        width: 20px;
+        height: 20px;
+    }
+    .customCheckBox.large[type="checkbox"]:after{
+        top: -20px;
+        width: 16px;
+        height: 16px;
+    }
+
 </style>
 </head>
 <body>
+<form method ="post" action="delete.php">
 <table class="table table-striped">
 <thead>
 <tr>
@@ -85,6 +140,7 @@ tr:nth-child(even) {background-color: }
 </tr>
 </thead>
 <tbody>
+
 
 <?php
 $conn = mysqli_connect('127.0.0.1', 'root', 'mysql','project');
@@ -107,13 +163,16 @@ while($row = mysqli_fetch_array($result)) {
 	echo "<td>".$row['address']."</td>";
 	echo "<td>".$row['info']."</td>";
 	echo "<td>".$row['date']."</td>";
-	echo "<td><a href=delete.php?id=".$row['id'].">Delete</a></td>";
+	echo "<td><input type = 'checkbox' class = 'customCheckBox large' name = 'checkbox[]' value = '".$row['id']."'></td>";
 	"</tr>";
 }
 echo "</table>";
 } else { echo "0 results"; }
 $conn->close();
 ?>
+
+<p align = "right"> <input type = "submit" name="delete" class ="delete" id="delete" value = "Delete Records"></p>
 	</tbody>
+	</form>
 </body>
 </html>
