@@ -1,5 +1,6 @@
+  
 <?php
-$conn = mysqli_connect('127.0.0.1','root','mysql','project');
+$conn = mysqli_connect('127.0.0.1','mysql','mysql','project2');
 
 if(!$conn) {
 	die("connection Failed;" .mysqli_connect_error());

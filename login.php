@@ -52,11 +52,13 @@
 				</div>
             <form action = "login.php" method ="post">
 				<?php if(count($errors) > 0): ?>
-					<div class="alert alert-danger">
+                    <ul class="list-group">
 						<?php foreach($errors as $error): ?>	
-						<li><?php echo $error;?></li>	
+                        
+                            <li class="list-group-item list-group-item-danger"><?php echo $error;?></li>
+                        
 						<?php endforeach; ?>
-				    </div>
+                    </ul>
 				<?php endif; ?>
                 <input type="text" id="username" name="username" value="<?php echo $username; ?>"placeholder="Login" >
                 <input type="password" id="password" name="password" placeholder="Password" >

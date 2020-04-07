@@ -46,28 +46,34 @@
                 <h1 class="padd"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</h1>
             </div>
             <form action="register.php" method="post">
-			    <?php if(count($errors) > 0): ?>
-					<div class="alert alert-danger">
-						<?php foreach($errors as $error): ?>	
-						<li><?php echo $error;?></li>	
-						<?php endforeach; ?>
-				    </div>
-				<?php endif; ?>
-				<input type="text" id="username" name="username" value="<?php echo $username; ?>" placeholder="Username">
-                <input type="email" id="email" name="email" value="<?php echo $email; ?>" placeholder="Email">
-                <input type="password" id="password" name="password" placeholder="Password">
-				<input type="password" id="passwordConf" name="passwordConf" placeholder="Confirm Password">
-                <input type="submit" name = "signup-btn" value="Sign Up">
-				
-            </form>
-
-            <div id="formFooter">
-                Already have an account? <a class="underlineHover" href="login.php">Login</a>
+             <?php if(count($errors) > 0): ?>
+               <div class="alert alert-danger">
+                  <?php if(count($errors) > 0): ?>
+                    <ul class="list-group">
+                        <?php foreach($errors as $error): ?>    
+                            
+                            <li class="list-group-item list-group-item-danger"><?php echo $error;?></li>
+                            
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
+        <?php endif; ?>
+        <input type="text" id="username" name="username" value="<?php echo $username; ?>" placeholder="Username">
+        <input type="email" id="email" name="email" value="<?php echo $email; ?>" placeholder="Email">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <input type="password" id="passwordConf" name="passwordConf" placeholder="Confirm Password">
+        <input type="submit" name = "signup-btn" value="Sign Up">
+        
+    </form>
 
-        </div>
+    <div id="formFooter">
+        Already have an account? <a class="underlineHover" href="login.php">Login</a>
     </div>
-	
+
+</div>
+</div>
+
 </body>
 
 </html>

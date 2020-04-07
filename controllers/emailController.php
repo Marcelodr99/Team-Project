@@ -41,7 +41,7 @@ function sendVerificationEmail($userEmail, $token)
     <body>
         <div class="wrapper">
             <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-            <a href="http://localhost/mysite/verify.php?token='  . $token . '">
+            <a href="https://richardquach.com/CarpetCleaning/v5/verify.php?token='  . $token . '">
                 Verify your Email!
             </a>
         </div>

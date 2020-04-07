@@ -1,0 +1,138 @@
+<?php require_once 'controllers/authController.php';
+
+if(!isset($_SESSION['id'])){
+	header('location: login.php');
+	exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carpet Cleaning</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="carousel.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
+        <a class="navbar-brand" href="./index.php"><img src="https://img.icons8.com/metro/26/000000/vacuum-cleaner.png"> | Rossi Carpet Cleaning</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a class="nav-link active" href="./about.php">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="./gallery.php">Gallery</a></li>
+            </ul>
+            <ul class="navbar-nav form-inline my-2 my-lg-0">
+				
+				
+				<td class="nav-item">
+				Welcome,
+				<?php echo $_SESSION['username'] ?></td>
+
+				<?php if ($_SESSION['user_level'] == 1){
+                    print("<li class='nav-item'><a class='nav-link' href='./admin.php'>Admin</a></li>");
+                }?>
+				
+                <li class="nav-item"><a class="nav-link" href="index.php?logout=1" class = "logout">logout</a></li>
+				
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container marketing mt-5">
+
+        <div class="row">
+            <div class="col-lg-4">
+                <i class="fa fa-map-marker fa-5x" aria-hidden="true"></i>
+                <h2 class="mt-3">Location</h2>
+                <p>101 Vera King Farris Dr, Galloway, NJ 08205</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.0134018889776!2d-74.53365398488117!3d39.49161197948344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c0e6e466cb51e9%3A0x8cfc19d0bd08fa6!2s101%20Vera%20King%20Farris%20Dr%2C%20Absecon%2C%20NJ%2008205!5e0!3m2!1sen!2sus!4v1583361908636!5m2!1sen!2sus"
+                    width="300" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+            <div class="col-lg-4">
+                <i class="fa fa-calendar-times-o fa-5x" aria-hidden="true"></i>
+                <h2 class="mt-3">Business Hours</h2>
+                <p> Mon: 10:00 AM – 6:00 PM
+                    <br> Tue: 10:00 AM – 6:00 PM
+                    <br> Wed: 10:00 AM – 6:00 PM
+                    <br> Thu: 10:00 AM – 6:00 PM
+                    <br> Fri: 10:00 AM – 6:00 PM
+                    <br> Sat: Closed
+                    <br> Sun: 10:00 AM – 6:00 PM
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <i class="fa fa-phone fa-5x" aria-hidden="true"></i>
+                <h2 class="mt-3">Phone Number</h2>
+                <p>(609) 222-2222
+                </p>
+                <p><a class="btn btn-secondary" href="#" role="button">Call Now &raquo;</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" src="./imgs/2jpg.jpg" alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="featurette-image img-fluid mx-auto" src="./imgs/3.jpeg" alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" src="./imgs/4.jpg" alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+    </div>
+
+
+</body>
+
+</html>

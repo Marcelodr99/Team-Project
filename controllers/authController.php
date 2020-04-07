@@ -66,10 +66,9 @@ if (isset($_POST['signup-btn'])) {
 		$_SESSION['verified'] = $verified;
 
 		sendVerificationEmail($email, $token);
-		
 		$_SESSION['message'] = "You are now registered!";
 		$_SESSION['alert-class'] = "alert-success";
-		header('location: verify.php');
+		header('Location: https://richardquach.com/CarpetCleaning/v5/verify.php');
 		exit();
 	
 	}else{
@@ -106,7 +105,7 @@ if (isset($_POST['login-btn'])) {
 	
 	if (password_verify($password, $user['password'])) {
 		$_SESSION['user_level'] = $user['user_level'];
-		$url = ($_SESSION['user_level'] === 1) ? 'indexAdmin.php' : 'index.php';
+		$url = 'index.php';
 		
 		$_SESSION['id'] = $user['id'];
 		$_SESSION['username'] = $user['username'];
