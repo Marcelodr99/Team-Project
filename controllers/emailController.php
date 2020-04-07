@@ -41,7 +41,7 @@ function sendVerificationEmail($userEmail, $token)
     <body>
         <div class="wrapper">
             <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-            <a href="https://richardquach.com/CarpetCleaning/v5/verify.php?token='  . $token . '">
+            <a href="http://localhost/Project2/verify.php?token='  . $token . '">
                 Verify your Email!
             </a>
         </div>
@@ -60,7 +60,50 @@ function sendVerificationEmail($userEmail, $token)
     $result = $mailer->send($message);
 }
 
-function sendPassword(Type $var = null)
+function sendPasswordResetLink($userEmail, $token)
 {
+    global $mailer;
 
+    $body ='<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Verify email</title>
+        <style>
+            .wrapper {
+            padding: 20px;
+            color: #444;
+            font-size: 1.3em;
+            }
+            a {
+            background: #000000;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <p> Hello,
+
+                Click here to reset your password:
+            </p>
+            <a href="http://localhost/Project2/verify.php?password-token='  . $token . '"> 
+                RESET PASSWORD
+            </a>
+        </div>
+        
+    </body>
+    </html>';
+    // Create a message
+    $message = (new Swift_Message('Rossi Carpet Cleaning Password Reset'))
+    ->setFrom(EMAIL)
+    ->setTo($userEmail)
+    ->setBody($body, 'text/html');
+    ;
+
+    // Send the message
+    $result = $mailer->send($message);
 }

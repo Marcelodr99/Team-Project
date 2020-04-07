@@ -66,7 +66,7 @@
             </form>
             <div id="formFooter">
                 <p>Don't yet have an account? <a class="underlineHover" href="register.php">Sign Up</a></p>
-                <p><a class="underlineHover" href="#">Forgot Password?</a></p>
+                <p><a class="underlineHover" href="forgotPassword.php">Forgot Password?</a></p>
             </div>
 
         </div>

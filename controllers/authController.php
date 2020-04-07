@@ -68,7 +68,7 @@ if (isset($_POST['signup-btn'])) {
 		sendVerificationEmail($email, $token);
 		$_SESSION['message'] = "You are now registered!";
 		$_SESSION['alert-class'] = "alert-success";
-		header('Location: https://richardquach.com/CarpetCleaning/v5/verify.php');
+		header('Location: verify.php');
 		exit();
 	
 	}else{
@@ -166,7 +166,70 @@ if (isset($_POST['login-btn'])) {
             }
         }
 
-    }
+	}
+	
+		// if user clicks on the forgot password button
+		if (isset($_POST['forgot-password'])) {
+			$email = $_POST['email'];
+	
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+				$errors['email'] = "Email address is invalid";  
+			}
+		
+			if (empty($email)) {
+				$errors['email'] = "Email required";    
+			}
+	
+			if(count($errors) == 0) {
+				$sql = "SELECT * FROM signup WHERE email = '$email' LIMIT 1";
+				$result = mysqli_query($conn, $sql);
+				$user = mysqli_fetch_assoc($result);
+				$token = $user['token'];
+				sendPasswordResetLink($email, $token);
+				header('location: passwordMessage.php');
+				exit(0);
+			}
+	
+		}
+	
+		// if user clicked on the reset password button
+		if (isset($_POST['reset-password-btn'])) {
+			$password = $_POST['password'];
+			$passwordConf = $_POST['passwordConf'];
+		
+			if (empty($password) || empty($passwordConf)) {
+				$errors['password'] = "Password required";    
+			}
+		
+			if($password !== $passwordConf) {
+				$errors['password'] = "The passwords do not match";
+			}   
+			
+			$password = password_hash($password, PASSWORD_DEFAULT);
+			$email = $_SESSION['email'];
+	
+			if (count($errors) == 0) {
+				$sql = "UPDATE signup SET password= '$password' WHERE email ='$email'";
+				$result = mysqli_query($conn, $sql);
+				if($result){
+					header('location: login.php');
+					exit(0);
+	
+				}
+			}
+		}
+		
+		function resetPassword($token)
+		{
+			global $conn;
+			$sql = "SELECT * FROM signup WHERE token= '$token' LIMIT 1";
+			$result = mysqli_query($conn, $sql);
+			$user = mysqli_fetch_assoc($result);
+			$_SESSION['email'] = $user['email'];
+			header('location: resetPassword.php');
+			exit(0);
+		}
+		
  
    
 	
