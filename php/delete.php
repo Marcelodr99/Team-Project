@@ -1,6 +1,7 @@
   
 <?php
-$conn = mysqli_connect('127.0.0.1','mysql','mysql','project2');
+require_once '../controllers/authController.php';
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if(!$conn) {
 	die("connection Failed;" .mysqli_connect_error());

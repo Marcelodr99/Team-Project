@@ -1,4 +1,4 @@
-<?php require_once 'controllers/authController.php';
+<?php require_once '../controllers/authController.php';
 
 if(!isset($_SESSION['id'])){
 	header('location: login.php');
@@ -14,8 +14,8 @@ if(!isset($_SESSION['id'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Carpet Cleaning</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="carousel.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/carousel.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -98,7 +98,7 @@ if(!isset($_SESSION['id'])){
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5">
-                <img class="featurette-image img-fluid mx-auto" src="./imgs/2jpg.jpg" alt="Generic placeholder image">
+                <img class="featurette-image img-fluid mx-auto" src="../assets/imgs/2jpg.jpg" alt="Generic placeholder image">
             </div>
         </div>
 
@@ -110,7 +110,7 @@ if(!isset($_SESSION['id'])){
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <img class="featurette-image img-fluid mx-auto" src="./imgs/3.jpeg" alt="Generic placeholder image">
+                <img class="featurette-image img-fluid mx-auto" src="../assets/imgs/3.jpeg" alt="Generic placeholder image">
             </div>
         </div>
 
@@ -122,7 +122,7 @@ if(!isset($_SESSION['id'])){
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5">
-                <img class="featurette-image img-fluid mx-auto" src="./imgs/4.jpg" alt="Generic placeholder image">
+                <img class="featurette-image img-fluid mx-auto" src="../assets/imgs/4.jpg" alt="Generic placeholder image">
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-<?php require_once 'controllers/authController.php';
+<?php require_once '../controllers/authController.php';
 
 if(!isset($_SESSION['id'])){
 	header('location: login.php');
@@ -14,7 +14,7 @@ if(!isset($_SESSION['id'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Carpet Cleaning</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -86,7 +86,7 @@ if(!isset($_SESSION['id'])){
     </div>
 
 
-    <script src="./gallery.js"></script>
+    <script src="../js/gallery.js"></script>
     <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Carpet_Cleaning_Tulsa.jpg" alt="">
     <img src="https://live.staticflickr.com/5211/5729073512_8306539af2_b.jpg" alt="">
     <img src="https://cdn.pixabay.com/photo/2016/08/19/11/37/vacuum-cleaner-1605068_960_720.jpg" alt="">

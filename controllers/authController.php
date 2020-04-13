@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require 'config/db.php';
+require '../config/db.php';
 require_once 'emailController.php';
 $errors = array();
 $username = "";

@@ -1,12 +1,9 @@
 <html>
 <body>
 <?php
-$servername = "127.0.0.1";
-$username = "mysql";
-$password = "mysql";
-$dbname = "project2";
+
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+require_once '../controllers/authController.php';
 
 // Check connection
 if ($conn->connect_error) {
@@ -26,7 +23,7 @@ $sql = "INSERT INTO schedule (fname, lname, email, address, phone, date, info)
 VALUES ('$fname', '$lname', '$email', '$address', '$phone', '$date', '$info')";
 if ($conn->query($sql) === TRUE) {
  echo "Sent!";
- header("location: index.html");
+ header("location: ../index.html");
 }
 else {
  echo "Error: " . $sql . "<br>" . $conn->error;
