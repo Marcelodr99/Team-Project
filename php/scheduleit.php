@@ -12,18 +12,23 @@ if ($conn->connect_error) {
 $fname = $_POST["fname"];
 $lname = $_POST["lname"];
 $email = $_POST["email"];
-$address = $_POST["address"];
 $phone = $_POST["phone"];
-$info = $_POST["info"];
 $input_date = strtr($_POST["date"], '/','-');
+$info = $_POST["info"];
+$address = $_POST["address"];
+$services = $_POST["services"];
+
 $date= date('Y-m-d', strtotime($input_date));
 
 
-$sql = "INSERT INTO schedule (fname, lname, email, address, phone, date, info) 
-VALUES ('$fname', '$lname', '$email', '$address', '$phone', '$date', '$info')";
+$sql = "INSERT INTO schedule (fname, lname, email, phone,  date, info, address, services) 
+VALUES ('$fname', '$lname', '$email', '$phone', '$date', '$info', '$address', '$services')";
 if ($conn->query($sql) === TRUE) {
  echo "Sent!";
- header("location: ../index.html");
+ if(isset($_SESSION['id']))
+    header("location: ./index.php");
+else    
+    header("location: ../index.html");
 }
 else {
  echo "Error: " . $sql . "<br>" . $conn->error;

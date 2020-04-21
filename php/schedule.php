@@ -54,11 +54,11 @@ if(!isset($_SESSION['id'])){
             </ul>
         </div>
     </nav>
-    <form name="qryform" id="qryform" method="post" action="scheduleit.php" >
-        <div class="container">
-            <div class="row form-row">
+    <form name="qryform" id="qryform" method="post" action="./scheduleit.php">
+        <div class="wrapper m-5">
+            <div class="row">
 
-                <div class="col-lg-4 col-md-10 col-sm-6 form-sec">
+                <div class="col-lg-5 col-md-10 col-sm-12">
                     <h4>Contact form</h4>
 
 
@@ -66,22 +66,22 @@ if(!isset($_SESSION['id'])){
                         <label>First Name:</label>
                         <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname" required>
                     </div>
-					
-					<div class="form-group">
+
+                    <div class="form-group">
                         <label>Last Name:</label>
                         <input type="text" class="form-control" id="fname" placeholder="Enter Last Name" name="lname" required>
                     </div>
-					
+
                     <div class="form-group">
                         <label>Email:</label>
                         <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
                     </div>
-					
-					<div class="form-group">
+
+                    <div class="form-group">
                         <label>Address:</label>
                         <input type="text" class="form-control" id="address" placeholder="Enter Address" name="address" required>
                     </div>
-					
+
                     <div class="form-group">
                         <label>Phone No.:</label>
                         <input type="text" class="form-control" id="phone" placeholder="Enter Phone no." name="phone" required>
@@ -97,7 +97,7 @@ if(!isset($_SESSION['id'])){
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-10 col-sm-8 form-sec">
+                <div class="col-lg-4 col-md-10 col-sm-12">
                     <h4>Services</h4>
 
                     <div class="card">
@@ -244,29 +244,32 @@ if(!isset($_SESSION['id'])){
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-10 col-sm-6 form-sec ml-3">
-                    <h2>Your Estimated Quote</h2>
+                <div class="col-lg-3 col-md-10 col-sm-12">
+                    <h2>Your Estimated Quote:</h2>
 
+                    <h5 id="services">
+                        
+                    </h5>
 
-                    <div class="form-group mt-5">
-                        <h3>Estimated Total:
+                    <div class="mt-5">
+                        <h2>Estimated Total:
                             <label>$ </label>
                             <label id="total">0</label>
-                        </h3>
+                        </h2>
 
                     </div>
                 </div>
             </div>
 
-			<div class="text-center">
-                <input type="submit" class="btn btn-primary" value = "Submit">
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary" value="Submit">
             </div>
     </form>
 
 
 
 
-    <script src="./schedule.js"></script>
+    <script src="../js/schedule.js"></script>
 </body>
 
 </html>
