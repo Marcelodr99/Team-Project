@@ -27,7 +27,11 @@ function updatePrice() {
     document.getElementById("services").value = message1 + message2 + message3 +"<br><br> Estimated Total: $" +document.getElementById("total").innerHTML;
 }
 
-
+function showCalendar(){
+    document.getElementById("btnShowDate").setAttribute("type", "hidden");
+    document.getElementById("btnSubmit").setAttribute("type", "submit");
+    document.getElementById("conDate").hidden = false;
+}
 //CARPET
 function addCR() {
     var quantity_temp = document.getElementById("cleanRoom").innerText;

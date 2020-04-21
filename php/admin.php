@@ -137,6 +137,7 @@ if(!isset($_SESSION['id'])){
 							<th scope="col">Info</th>
 							<th scope="col">Services</th>
 							<th scope="col">Date</th>
+							<th scope="col">Time</th>
 							<th scope="col">Delete</th>
 						</tr>
 					</thead>
@@ -165,6 +166,7 @@ if(!isset($_SESSION['id'])){
 								echo "<td>".$row['info']."</td>";
 								echo "<td>".$row['services']."</td>";
 								echo "<td>".$row['date']."</td>";
+								echo "<td>".$row['time']."</td>";
 								echo "<td><input type = 'checkbox' class = 'customCheckBox large' name = 'checkbox[]' value = '".$row['id']."'></td>";
 								"</tr>";
 							}
