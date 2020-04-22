@@ -57,7 +57,7 @@ if(!isset($_SESSION['id'])){
             </ul>
         </div>
     </nav>
-    <form name="qryform" id="qryform" method="post" action="./php/scheduleit.php">
+    <form name="qryform" id="qryform" method="post" action="./scheduleit.php">
         <div class="wrapper m-5">
             <div class="row">
 
@@ -261,10 +261,33 @@ if(!isset($_SESSION['id'])){
 
            
             <div class="text-center">
-                <input id="btnShowDate" type="button" class="btn btn-primary" onclick="showCalendar()" value="Select Date">
+                <input id="btnShowDate" type="button" class="btn btn-primary" onclick="showCalendar()" value="Next">
             </div>
 
             <div hidden id="conDate" class="container">
+                <div class="text-center">
+                    <h3>Pay With</h3>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radio" id="radioCash" value="cash" onclick="updatePaymentOption()">
+                        <label class="form-check-label" for="radioCash">
+                          Cash
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radio" id="radioCredit" value="credit" onclick="updatePaymentOption()">
+                        <label class="form-check-label" for="radioCredit">
+                          Credit
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radio" id="radioPaypal" value="paypal" onclick="updatePaymentOption()">
+                        <label class="form-check-label" for="radioPaypal">
+                          PayPal
+                        </label>
+                      </div>
+                      <p hidden="true" id="paymentOption">cash</p>
+                </div>
+                
                 <h3 class="text-center">Select Desired Date & Time</h3>
                 <div class="row justify-content-md-center">
                     <div id="calendar"></div>

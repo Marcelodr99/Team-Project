@@ -3,9 +3,10 @@ $(document).ready(function () {
     jQuery.extend({
         getValues: function(url) {
             var result = null;
+            var ur = window.location.origin + "/Team-Project/php/ajax.php";
             $.ajax({
                 type: "GET",
-                url: "./php/ajax.php",             
+                url: ur,             
                 dataType: "json",
                 async: false,             
                 success: function(data){                    
@@ -43,7 +44,6 @@ $(document).ready(function () {
 
 
     setup.events = arr;
-    console.log(setup);
     $('#calendar').eCalendar(setup);
 
     

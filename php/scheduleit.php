@@ -15,7 +15,7 @@ $email = $_POST["email"];
 $phone = $_POST["phone"];
 $input_date = strtr($_POST["date"], '/','-');
 $time = $_POST["time"];
-$info = $_POST["info"];
+$info = $_POST["info"] + "Payment Option" + $_POST["paymentOption"];
 $address = $_POST["address"];
 $services = $_POST["services"];
 

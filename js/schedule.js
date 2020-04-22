@@ -1,3 +1,6 @@
+$(document).ready(function () {
+    updatePaymentOption();
+ });
 function updatePrice() {
 
     var amountCR = parseInt((document.getElementById("cleanRoom").innerText), 10);
@@ -23,8 +26,21 @@ function updatePrice() {
     var message2 = "<br><br>Upholstery Cleaning : " + "<br><br>Sofa: " + amountS + "<br><br>Sectional: " + amountSE + "<br><br>Chair: " + amountC + "<br><br>Ottoman: " + amountO + "<br><br>Dining Room Chair: " + amountD; 
     var message3 = "<br><br>Tile & Grout Floor Cleaning : " + "<br><br>Rooms: " + amountTR + "<br><br>Bath/Laundry: " + amountTB + "<br><br>Entry/Hall: " + amountTE + "<br><br>Staircase: " + amountTS; 
     
+    
+
     document.getElementById("disp").innerHTML = message1 + message2 + message3;
-    document.getElementById("services").value = message1 + message2 + message3 +"<br><br> Estimated Total: $" +document.getElementById("total").innerHTML;
+    document.getElementById("services").value = message1 + message2 + message3 +"<br><br> Estimated Total: $" +document.getElementById("total").innerHTML + "<br><br> Payment Option: "+document.getElementById("paymentOption").innerHTML;
+    
+}
+
+function updatePaymentOption(){
+    var radios = document.getElementsByName('radio');
+    for(var i = 0; i < radios.length; i++){
+        radios[i].onclick = function(){
+            console.log("ASD");
+            document.getElementById("paymentOption").innerHTML = this.value;
+        }
+    }
 }
 
 function showCalendar(){
