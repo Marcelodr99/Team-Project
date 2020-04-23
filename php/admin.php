@@ -65,7 +65,10 @@ if(!isset($_SESSION['id'])){
 					background-color: #808080;
 					color: white;
 				}
-				tr:nth-child(even) {background-color: }
+				.asd{
+					background-color:white;
+				}
+				tr:nth-child(even) {background-color:  }
 
 				.delete {
 					webkit-border-radius: 30px;
@@ -123,20 +126,22 @@ if(!isset($_SESSION['id'])){
 			</style>
 		</head>
 		<body>
+				<h4>How to use edit: 1) Click the checkbox of row you want to edit. 2) Edit cell. 3) Uncheck box of edited row. 4) Hit Edit Records // It's still buggy, msg for bug details//</h4>
 			<form method ="post" action="delete.php">
-				<table class="table table-striped">
+			<input type="text" class="form-control" id="place" value="" placeholder="place" name="place" autocomplete="off" hidden="true">
+				<table class="table">
 					<thead>
 						<tr>
-
-
 							<th scope="col">First Name</th>
 							<th scope="col">Last Name</th>
 							<th scope="col">Phone</th>
 							<th scope="col">Email</th>
 							<th scope="col">Address</th>
 							<th scope="col">Info</th>
+							<th scope="col">Services</th>
 							<th scope="col">Date</th>
-							<th scope="col">Delete</th>
+							<th scope="col">Time</th>
+							<th scope="col">Edit/Delete</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -153,26 +158,32 @@ if(!isset($_SESSION['id'])){
 						$result = mysqli_query($conn,$sql);
 						if ($result->num_rows > 0) {
 // output data of each row
+							$i = 1;
 							while($row = mysqli_fetch_array($result)) { 
-								echo "<tr scope='row'>";
+								echo "<tr>";
 								
-								echo "<td>".$row['fname']."</td>";
-								echo "<td>".$row['lname']."</td>";
-								echo "<td>".$row['phone']."</td>";
-								echo "<td>".$row['email']."</td>";
-								echo "<td>".$row['address']."</td>";
-								echo "<td>".$row['info']."</td>";
-								echo "<td>".$row['date']."</td>";
-								echo "<td><input type = 'checkbox' class = 'customCheckBox large' name = 'checkbox[]' value = '".$row['id']."'></td>";
+								echo "<td id='fst'>".$row['fname']."</td>";
+								echo "<td id='lst'>".$row['lname']."</td>";
+								echo "<td id='phne'>".$row['phone']."</td>";
+								echo "<td id='em'>".$row['email']."</td>";
+								echo "<td id='addr'>".$row['address']."</td>";
+								echo "<td id='inf'>".$row['info']."</td>";
+								echo "<td id='serv'>".$row['services']."</td>";
+								echo "<td id='dat'>".$row['date']."</td>";
+								echo "<td id='tim'>".$row['time']."</td>";
+								echo "<td><input type = 'checkbox' onclick='exec(this)' class = 'customCheckBox large' id='checkbox[]".$i."' name = 'checkbox[]' value = '".$row['id']."'></td>";
 								"</tr>";
+								$i++;
 							}
 							echo "</table>";
 						} else { echo "0 results"; }
 						$conn->close();
 						?>
-
-						<p align = "right"> <input type = "submit" name="delete" class ="delete" id="delete" value = "Delete Records"></p>
+						<p align = "right"> <input type = "submit" name="edit" class ="delete" id="edit" value = "Edit Records"> <input type = "submit" name="delete" class ="delete" id="delete" value = "Delete Records"></p>
+						
 					</tbody>
 				</form>
+
+				<script type="text/javascript" src="../js/admin.js"></script>
 			</body>
 			</html>

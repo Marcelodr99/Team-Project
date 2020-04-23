@@ -1,27 +1,53 @@
+$(document).ready(function () {
+    updatePaymentOption();
+ });
 function updatePrice() {
-    //                                                                               \/ Prices
-    var amountCR = parseInt((document.getElementById("cleanRoom").innerText), 10) * 15;
-    var amountCB = parseInt((document.getElementById("cleanBath").innerText), 10) * 20;
-    var amountCE = parseInt((document.getElementById("cleanEntry").innerText), 10) * 25;
-    var amountCS = parseInt((document.getElementById("cleanStair").innerText), 10) * 30;
 
-    var amountS = parseInt((document.getElementById("upSofa").innerText), 10) * 40;
-    var amountSE = parseInt((document.getElementById("upSectional").innerText), 10) * 50;
-    var amountC = parseInt((document.getElementById("upChair").innerText), 10) * 55;
-    var amountO = parseInt((document.getElementById("upOttoman").innerText), 10) * 60;
-    var amountD = parseInt((document.getElementById("upDining").innerText), 10) * 65;
+    var amountCR = parseInt((document.getElementById("cleanRoom").innerText), 10);
+    var amountCB = parseInt((document.getElementById("cleanBath").innerText), 10);
+    var amountCE = parseInt((document.getElementById("cleanEntry").innerText), 10);
+    var amountCS = parseInt((document.getElementById("cleanStair").innerText), 10);
 
-    var amountTR = parseInt((document.getElementById("tileRoom").innerText), 10) * 70;
-    var amountTB = parseInt((document.getElementById("tileBath").innerText), 10) * 75;
-    var amountTE = parseInt((document.getElementById("tileEntry").innerText), 10) * 80;
-    var amountTS = parseInt((document.getElementById("tileStair").innerText), 10) * 85;
+    var amountS = parseInt((document.getElementById("upSofa").innerText), 10);
+    var amountSE = parseInt((document.getElementById("upSectional").innerText), 10);
+    var amountC = parseInt((document.getElementById("upChair").innerText), 10);
+    var amountO = parseInt((document.getElementById("upOttoman").innerText), 10);
+    var amountD = parseInt((document.getElementById("upDining").innerText), 10);
 
-    console.log(estimTotal);
-    var estimTotal = amountCR + amountCB + amountCE + amountCS + amountS + amountSE + amountC + amountO + amountD + amountTR + amountTB + amountTE + amountTS;
+    var amountTR = parseInt((document.getElementById("tileRoom").innerText), 10);
+    var amountTB = parseInt((document.getElementById("tileBath").innerText), 10);
+    var amountTE = parseInt((document.getElementById("tileEntry").innerText), 10);
+    var amountTS = parseInt((document.getElementById("tileStair").innerText), 10);
+
+    var estimTotal = amountCR *15+ amountCB *15+ amountCE *15+ amountCS *15+ amountS *15+ amountSE *15+ amountC *15+ amountO *15+ amountD *15+ amountTR *15+ amountTB *15+ amountTE *15+ amountTS*15;
     document.getElementById("total").innerHTML = estimTotal;
+
+    var message1 = "Carpet Cleaning : " + "<br><br>Rooms: " + amountCR + "<br><br>Bath/Laundry: " + amountCB + "<br><br>Entry/Hall: " + amountCE + "<br><br>Staircase: " + amountCS; 
+    var message2 = "<br><br>Upholstery Cleaning : " + "<br><br>Sofa: " + amountS + "<br><br>Sectional: " + amountSE + "<br><br>Chair: " + amountC + "<br><br>Ottoman: " + amountO + "<br><br>Dining Room Chair: " + amountD; 
+    var message3 = "<br><br>Tile & Grout Floor Cleaning : " + "<br><br>Rooms: " + amountTR + "<br><br>Bath/Laundry: " + amountTB + "<br><br>Entry/Hall: " + amountTE + "<br><br>Staircase: " + amountTS; 
+    
+    
+
+    document.getElementById("disp").innerHTML = message1 + message2 + message3;
+    document.getElementById("services").value = message1 + message2 + message3 +"<br><br> Estimated Total: $" +document.getElementById("total").innerHTML + "<br><br> Payment Option: "+document.getElementById("paymentOption").innerHTML;
+    
 }
 
+function updatePaymentOption(){
+    var radios = document.getElementsByName('radio');
+    for(var i = 0; i < radios.length; i++){
+        radios[i].onclick = function(){
+            console.log("ASD");
+            document.getElementById("paymentOption").innerHTML = this.value;
+        }
+    }
+}
 
+function showCalendar(){
+    document.getElementById("btnShowDate").setAttribute("type", "hidden");
+    document.getElementById("btnSubmit").setAttribute("type", "submit");
+    document.getElementById("conDate").hidden = false;
+}
 //CARPET
 function addCR() {
     var quantity_temp = document.getElementById("cleanRoom").innerText;
