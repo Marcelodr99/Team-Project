@@ -18,12 +18,17 @@ $time = $_POST["time"];
 $info = $_POST["info"] + "Payment Option" + $_POST["paymentOption"];
 $address = $_POST["address"];
 $services = $_POST["services"];
-
 $date= date('Y-m-d', strtotime($input_date));
+$id = $_SESSION['id'];
 
 
-$sql = "INSERT INTO schedule (fname, lname, email, phone,  date, time, info, address, services) 
-VALUES ('$fname', '$lname', '$email', '$phone', '$date', '$time', '$info', '$address', '$services')";
+if(isset($_SESSION['id'])){
+	$sql = "INSERT INTO schedule (fname, lname, email, phone,  date, time, info, address, services, customer_id) 
+	VALUES ('$fname', '$lname', '$email', '$phone', '$date', '$time', '$info', '$address', '$services', '$id')";}
+else{
+	$sql = "INSERT INTO schedule (fname, lname, email, phone,  date, time, info, address, services) 
+	VALUES ('$fname', '$lname', '$email', '$phone', '$date', '$time', '$info', '$address', '$services')";
+	}
 if ($conn->query($sql) === TRUE) {
  echo "Sent!";
  if(isset($_SESSION['id']))

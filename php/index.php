@@ -48,7 +48,7 @@ if(!isset($_SESSION['id'])){
                 <?php if ($_SESSION['user_level'] == 1){
                     print("<li class='nav-item'><a class='nav-link' href='./admin.php'>Admin</a></li>");
                 }?>
-				
+				<li class="nav-item"><a class="nav-link" href="userView.php">View Appointment</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php?logout=1" class = "logout">logout</a></li>
 				
 
