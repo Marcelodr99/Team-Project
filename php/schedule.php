@@ -74,12 +74,12 @@ if(!isset($_SESSION['id'])){
                         <label>Last Name:</label>
                         <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname" required>
                     </div>
-
+<!--
                     <div class="form-group">
                         <label>Email:</label>
                         <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
                     </div>
-
+-->	
                     <div class="form-group">
                         <label>Address:</label>
                         <input type="text" class="form-control" id="address" placeholder="Enter Address" name="address" required>

@@ -12,6 +12,7 @@ if ($conn->connect_error) {
 $fname = $_POST["fname"];
 $lname = $_POST["lname"];
 $email = $_POST["email"];
+$email2 = $_SESSION['email'];
 $phone = $_POST["phone"];
 $input_date = strtr($_POST["date"], '/','-');
 $time = $_POST["time"];
@@ -21,10 +22,10 @@ $services = $_POST["services"];
 $date= date('Y-m-d', strtotime($input_date));
 $id = $_SESSION['id'];
 
-
+//inserts the the id from signup table to customer_id of schedule table if logged in.
 if(isset($_SESSION['id'])){
 	$sql = "INSERT INTO schedule (fname, lname, email, phone,  date, time, info, address, services, customer_id) 
-	VALUES ('$fname', '$lname', '$email', '$phone', '$date', '$time', '$info', '$address', '$services', '$id')";}
+	VALUES ('$fname', '$lname', '$email2', '$phone', '$date', '$time', '$info', '$address', '$services', '$id')";}
 else{
 	$sql = "INSERT INTO schedule (fname, lname, email, phone,  date, time, info, address, services) 
 	VALUES ('$fname', '$lname', '$email', '$phone', '$date', '$time', '$info', '$address', '$services')";
