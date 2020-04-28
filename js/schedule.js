@@ -1,6 +1,7 @@
 $(document).ready(function () {
     updatePaymentOption();
  });
+ var estimTotal;
 function updatePrice() {
 
     var amountCR = parseInt((document.getElementById("cleanRoom").innerText), 10);
@@ -19,7 +20,7 @@ function updatePrice() {
     var amountTE = parseInt((document.getElementById("tileEntry").innerText), 10);
     var amountTS = parseInt((document.getElementById("tileStair").innerText), 10);
 
-    var estimTotal = amountCR *15+ amountCB *15+ amountCE *15+ amountCS *15+ amountS *15+ amountSE *15+ amountC *15+ amountO *15+ amountD *15+ amountTR *15+ amountTB *15+ amountTE *15+ amountTS*15;
+    estimTotal = amountCR *15+ amountCB *15+ amountCE *15+ amountCS *15+ amountS *15+ amountSE *15+ amountC *15+ amountO *15+ amountD *15+ amountTR *15+ amountTB *15+ amountTE *15+ amountTS*15;
     document.getElementById("total").innerHTML = estimTotal;
 
     var message1 = "Carpet Cleaning : " + "<br><br>Rooms: " + amountCR + "<br><br>Bath/Laundry: " + amountCB + "<br><br>Entry/Hall: " + amountCE + "<br><br>Staircase: " + amountCS; 
@@ -259,7 +260,7 @@ function subTS() {
           return actions.order.create({
               purchase_units: [{
                   amount: {
-                      value: '1'
+                      value: estimTotal
                   }
               }]
           });

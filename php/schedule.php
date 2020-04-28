@@ -57,7 +57,7 @@ if(!isset($_SESSION['id'])){
             </ul>
         </div>
     </nav>
-    <form name="qryform" id="qryform" method="post" action="./scheduleit.php">
+    <form name="qryform" id="qryform" method="post" action="./php/scheduleit.php">
         <div class="wrapper m-5">
             <div class="row">
 
@@ -74,12 +74,12 @@ if(!isset($_SESSION['id'])){
                         <label>Last Name:</label>
                         <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname" required>
                     </div>
-<!--
+
                     <div class="form-group">
                         <label>Email:</label>
                         <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
                     </div>
--->	
+
                     <div class="form-group">
                         <label>Address:</label>
                         <input type="text" class="form-control" id="address" placeholder="Enter Address" name="address" required>
@@ -329,7 +329,8 @@ if(!isset($_SESSION['id'])){
 
 
 
-
+	<div class="text-center mt-3" id="paypal-button-container"></div>
+	<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
     <script type="text/javascript" src="../js/schedule.js"></script>
     <script type="text/javascript" src="../js/calendar.js"></script>
     <script type="text/javascript" src="../js/startCalendar.js"></script>
