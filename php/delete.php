@@ -18,31 +18,16 @@ if(isset($_POST['delete'])){
 if(isset($_POST['edit'])){
 
 	$str = $_POST['place'];
-	
-	
 
 	$arr = explode(" ", $str);
-	$sql .= "\n" . 'INSERT INTO schedule (fname, lname, phone, email, address, info, services, date, time) VALUES ("';
-	$sql .= implode('","', $arr);
-	$sql .='")' ."\n";
 
-	
+	$selectID = "SELECT * FROM schedule WHERE FIND_IN_SET('last',lname)";
+	$result = mysqli_query($conn, $selectID);
+	$rs = mysqli_fetch_assoc($result);
+	$sql = "UPDATE `schedule` SET `fname` = '$arr[0]', `lname` = '$arr[1]', `email` = '$arr[3]', `address` = '$arr[4]', `phone` = '$arr[2]', `date` = '$arr[7]', `time` = '$arr[8]', `info` = '$arr[5]', `services` = '$arr[6]' WHERE `schedule`.`id` =" . $rs[id] ."\n";
+	mysqli_query($conn, $sql);
 
-	// ***** BUG ******
-	// It adds the edited appointment but does not delete previous
-	// ***** BUG ******
-	$dd = $_POST['checkbox'];
-	foreach($dd as $id){
-		$sql .= "DELETE FROM schedule WHERE id=".$id . "\n";
-	}
-	if ($conn->multi_query($sql) === TRUE) {
-    	echo "Table row copied successfully. Do something with it";
-	}
-	else{
-		echo "Error DELETE: " . mysqli_error($conn);
-	}
-	
-	header("refresh:2; url = admin.php");
+	header("refresh:1; url = admin.php");
 
 }
 	mysqli_close($conn)

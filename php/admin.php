@@ -126,7 +126,6 @@ if(!isset($_SESSION['id'])){
 			</style>
 		</head>
 		<body>
-				<h4>How to use edit: 1) Click the checkbox of row you want to edit. 2) Edit cell. 3) Uncheck box of edited row. 4) Hit Edit Records // It's still buggy, msg for bug details//</h4>
 			<form method ="post" action="delete.php">
 			<input type="text" class="form-control" id="place" value="" placeholder="place" name="place" autocomplete="off" hidden="true">
 				<table class="table">
