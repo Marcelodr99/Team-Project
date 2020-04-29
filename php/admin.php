@@ -44,7 +44,7 @@ if(!isset($_SESSION['id'])){
 					session_start();
 					echo $_SESSION['username'] ?></td>
 					<li class="nav-item"><a class="nav-link" href="userView.php">View Appointment</a></li>
-					<li class="nav-item"><a class="nav-link" href="./admin.php">Admin</a></li>
+					<li class="nav-item"><a class="nav-link active" href="./admin.php">Admin</a></li>
 					<li class="nav-item"><a class="nav-link" href="index.php?logout=1" class = "logout">logout</a></li>
 				</ul>
 			</div>
