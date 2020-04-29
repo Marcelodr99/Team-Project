@@ -24,9 +24,33 @@ function exec(elem){
     time = time.replace(" ", "");
 
 
-    var asd= first + " " + last+ " " +phone+ " " +email+ " " +address+ " " +info+ " " +services+ " " +date+ " " +time;
+    var asd= first + "|" + last+ "|" +phone+ "|" +email+ "|" +address+ "|" +info+ "|" +services+ "|" +date+ "|" +time;
 
     document.getElementById("place").value = asd;
         
     
 }
+function uploadFile(){
+    var input = document.getElementById("file");
+    file = input.files[0];
+    if(file != undefined){
+      formData= new FormData();
+      if(!!file.type.match(/image.*/)){
+        formData.append("image", file);
+        $.ajax({
+          url: "upload.php",
+          type: "POST",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function(data){
+              alert('Image has been successfully updated');
+          }
+        });
+      }else{
+        alert('Not a valid image!');
+      }
+    }else{
+      alert('Input something!');
+    }
+  }

@@ -41,11 +41,7 @@ function sendVerificationEmail($userEmail, $token)
     <body>
         <div class="wrapper">
             <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-<<<<<<< HEAD
             <a href="https://localhost/mysite/php/verify.php?token='  . $token . '">
-=======
-            <a href="http://localhost/mysite/php/verify.php?token='  . $token . '">
->>>>>>> cdc17fea2dda2cfd51587cf0b04a9d22af1823f9
                 Verify your Email!
             </a>
         </div>

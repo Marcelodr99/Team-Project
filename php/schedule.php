@@ -46,7 +46,7 @@ if(!isset($_SESSION['id'])){
 				<td class="nav-item">
 				Welcome,
 				<?php echo $_SESSION['username'] ?></td>
-
+                <li class="nav-item"><a class="nav-link" href="userView.php">View Appointment</a></li>
                 <?php if ($_SESSION['user_level'] == 1){
                     print("<li class='nav-item'><a class='nav-link' href='./admin.php'>Admin</a></li>");
                 }?>
@@ -245,18 +245,34 @@ if(!isset($_SESSION['id'])){
                 </div>
                 <div class="col-lg-3 col-md-10 col-sm-12">
                     <h2>Your Estimated Quote:</h2>
-                    <p id="disp"></p>
-
-                    <input type="hidden" value="hidden" id="services" name="services">
-
-                    <div class="mt-5">
-                        <h2>Estimated Total:
-                            <label>$ </label>
-                            <label id="total">0</label>
-                        </h2>
-
+                    <div id="asd">
+                        <h5>Carpet Cleaning:</h5>
+                        <p id="rm"></p>
+                        <p id="ba"></p>
+                        <p id="et"></p>
+                        <p id="st"></p>
+                        <h5>Upholstery Cleaning: </h5>
+                        <p id="so"></p>
+                        <p id="se"></p>
+                        <p id="ch"></p>
+                        <p id="ot"></p>
+                        <p id="dr"></p>
+                        <h5>Tile & Grout Cleaning: </h5>
+                        <p id="tr"></p>
+                        <p id="tb"></p>
+                        <p id="te"></p>
+                        <p id="ts"></p>
                     </div>
+                    <input type="hidden" value="hidden" id="services" name="services">
+    
+                        <div class="mt-5">
+                            <h2>Estimated Total:
+                                <label>$ </label>
+                                <label id="total">0</label>
+                            </h2>
+                        </div>
                 </div>
+                
             </div>
 
            
