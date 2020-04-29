@@ -56,7 +56,7 @@ if(!isset($_SESSION['id'])){
 		<form method ="post" action="delete.php">
 			<input type="text" class="form-control" id="place" value="" placeholder="place" name="place" autocomplete="off" hidden="true">
 			<table class="table">
-				<thead>
+				<thead class="thead-dark">
 					<tr>
 						<th scope="col">First Name</th>
 						<th scope="col">Last Name</th>
@@ -111,7 +111,7 @@ if(!isset($_SESSION['id'])){
 			</table>
 		</form>
 		<div class="container text-center">
-			<a class="btn btn-primary align-center" data-toggle="collapse" href="#collapseE" role="button" aria-expanded="false" aria-controls="collapseE">Show Upload to Gallery</a>
+			<a class="btn btn-link align-center" data-toggle="collapse" href="#collapseE" role="button" aria-expanded="false" aria-controls="collapseE">Show Upload to Gallery</a>
 		</div>
 		<div class="container text-center collapse" id="collapseE">
 			<h5>Upload Images to Gallery : </h5>

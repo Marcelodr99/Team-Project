@@ -50,6 +50,11 @@ $(document).ready(function () {
 
     
 });
+$(function () {
+    $('#datetimepicker3').datetimepicker({
+        format: 'LT'
+    });
+});
 function convertDate(date, t){
     
     var year = date.substring(0,4);

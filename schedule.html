@@ -243,15 +243,14 @@
                         <p id="tb"></p>
                         <p id="te"></p>
                         <p id="ts"></p>
+                        <br>
+                        <h2>Estimated Total:
+                            <label>$ </label>
+                            <label id="total">0</label>
+                        </h2>
                     </div>
                     <input type="hidden" value="hidden" id="services" name="services">
     
-                        <div class="mt-5">
-                            <h2>Estimated Total:
-                                <label>$ </label>
-                                <label id="total">0</label>
-                            </h2>
-                        </div>
                 </div>
                 
             </div>
@@ -282,7 +281,8 @@
                           PayPal
                         </label>
                       </div>
-                      <p hidden="true" id="paymentOption">cash</p>
+                      <input type="text" class="form-control" id="paymentOption" name="paymentOption" autocomplete="off" hidden="true">
+
                 </div>
                 
                 <h3 class="text-center">Select Desired Date & Time</h3>
@@ -303,13 +303,6 @@
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#datetimepicker3').datetimepicker({
-                                format: 'LT'
-                            });
-                        });
-                    </script>
                 </div>
                 
                 <div class="text-center">
@@ -323,8 +316,6 @@
 
             
     </form>
-
-
 
 	<div class="text-center mt-3" id="paypal-button-container"></div>
 	<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>

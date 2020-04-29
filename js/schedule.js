@@ -23,7 +23,7 @@ function updatePrice() {
     estimTotal = amountCR *15+ amountCB *15+ amountCE *15+ amountCS *15+ amountS *15+ amountSE *15+ amountC *15+ amountO *15+ amountD *15+ amountTR *15+ amountTB *15+ amountTE *15+ amountTS*15;
     document.getElementById("total").innerHTML = estimTotal;
 
-    document.getElementById("services").value = document.getElementById("asd").innerHTML + "<br><br> Payment Option: "+document.getElementById("paymentOption").innerHTML;
+    document.getElementById("services").value = document.getElementById("asd").innerHTML + "<br><br> Payment Option: ";
     
 }
 
@@ -31,8 +31,7 @@ function updatePaymentOption(){
     var radios = document.getElementsByName('radio');
     for(var i = 0; i < radios.length; i++){
         radios[i].onclick = function(){
-            console.log("ASD");
-            document.getElementById("paymentOption").innerHTML = this.value;
+            document.getElementById("paymentOption").value = this.value;
         }
     }
 }

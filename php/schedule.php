@@ -57,7 +57,7 @@ if(!isset($_SESSION['id'])){
             </ul>
         </div>
     </nav>
-    <form name="qryform" id="qryform" method="post" action="./php/scheduleit.php">
+    <form name="qryform" id="qryform" method="post" action="./scheduleit.php">
         <div class="wrapper m-5">
             <div class="row">
 
@@ -262,15 +262,14 @@ if(!isset($_SESSION['id'])){
                         <p id="tb"></p>
                         <p id="te"></p>
                         <p id="ts"></p>
+                        <br>
+                        <h2>Estimated Total:
+                            <label>$ </label>
+                            <label id="total">0</label>
+                        </h2>
                     </div>
                     <input type="hidden" value="hidden" id="services" name="services">
     
-                        <div class="mt-5">
-                            <h2>Estimated Total:
-                                <label>$ </label>
-                                <label id="total">0</label>
-                            </h2>
-                        </div>
                 </div>
                 
             </div>
@@ -301,7 +300,8 @@ if(!isset($_SESSION['id'])){
                           PayPal
                         </label>
                       </div>
-                      <p hidden="true" id="paymentOption">cash</p>
+                      <input type="text" class="form-control" id="paymentOption" name="paymentOption" autocomplete="off" hidden="true">
+
                 </div>
                 
                 <h3 class="text-center">Select Desired Date & Time</h3>
@@ -322,13 +322,6 @@ if(!isset($_SESSION['id'])){
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#datetimepicker3').datetimepicker({
-                                format: 'LT'
-                            });
-                        });
-                    </script>
                 </div>
                 
                 <div class="text-center">

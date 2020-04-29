@@ -18,7 +18,7 @@ $input_date = strtr($_POST["date"], '/','-');
 $time = $_POST["time"];
 $info = $_POST["info"];
 $address = $_POST["address"];
-$services = $_POST["services"];
+$services = $_POST["services"] . $_POST["paymentOption"];
 $date= date('Y-m-d', strtotime($input_date));
 $id = $_SESSION['id'];
 

@@ -56,7 +56,7 @@ if(!isset($_SESSION['id'])){
 		<form method ="post" action="delete.php">
 			<input type="text" class="form-control" id="place" value="" placeholder="place" name="place" autocomplete="off" hidden="true">
 			<table class="table">
-				<thead>
+				<thead class="thead-dark">
 					<tr>
 						<th scope="col">First Name</th>
 						<th scope="col">Last Name</th>
