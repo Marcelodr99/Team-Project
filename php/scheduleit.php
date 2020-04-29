@@ -4,6 +4,7 @@
 
 // Create connection
 require_once '../controllers/authController.php';
+require_once '../controllers/emailController.php';
 
 // Check connection
 if ($conn->connect_error) {
@@ -32,10 +33,16 @@ else{
 	}
 if ($conn->query($sql) === TRUE) {
  echo "Sent!";
- if(isset($_SESSION['id']))
-    header("location: ./index.php");
-else    
-    header("location: ../index.html");
+ if(isset($_SESSION['id'])){
+	header("location: ./index.php");
+	sendScheduleLink($email2, $fname, $date, $time);
+ }
+else{
+	header("location: ../index.html");
+	sendScheduleLink($email, $fname, $date, $time);
+
+}    
+
 }
 else {
  echo "Error: " . $sql . "<br>" . $conn->error;

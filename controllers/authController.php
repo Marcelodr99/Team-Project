@@ -65,7 +65,7 @@ if (isset($_POST['signup-btn'])) {
 		$_SESSION['email'] = $email;
 		$_SESSION['verified'] = $verified;
 
-		sendVerificationEmail($email, $token);
+		sendVerificationEmail($email, $token, $username);
 		$_SESSION['message'] = "You are now registered!";
 		$_SESSION['alert-class'] = "alert-success";
 		header('Location: verify.php');
@@ -185,7 +185,8 @@ if (isset($_POST['login-btn'])) {
 				$result = mysqli_query($conn, $sql);
 				$user = mysqli_fetch_assoc($result);
 				$token = $user['token'];
-				sendPasswordResetLink($email, $token);
+				$username = $user['username'];
+				sendPasswordResetLink($email, $token, $username);
 				header('location: passwordMessage.php');
 				exit(0);
 			}
