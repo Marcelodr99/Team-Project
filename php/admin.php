@@ -49,11 +49,8 @@ if(!isset($_SESSION['id'])){
 				</ul>
 			</div>
 		</nav>
-		<div class="container text-center">
-			<h5>Upload Images to Gallery : </h5>
-			<input type="file" id="file" />
-			<button onclick="uploadFile();">Upload</button>
-		</div>
+
+		
 		
 
 		<form method ="post" action="delete.php">
@@ -113,7 +110,14 @@ if(!isset($_SESSION['id'])){
 				</tbody>
 			</table>
 		</form>
-
+		<div class="container text-center">
+			<a class="btn btn-primary align-center" data-toggle="collapse" href="#collapseE" role="button" aria-expanded="false" aria-controls="collapseE">Show Upload to Gallery</a>
+		</div>
+		<div class="container text-center collapse" id="collapseE">
+			<h5>Upload Images to Gallery : </h5>
+			<input type="file" id="file" />
+			<button onclick="uploadFile();">Upload</button>
+		</div>
 		<script type="text/javascript" src="../js/admin.js"></script>
 </body>
 </html>
